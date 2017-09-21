@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Greed.Tests
 {
     [TestClass]
-    public class ScoringTests
+    public class ScoringRulesShould
     {
         [TestMethod]
         public void Return50GivenSingle5()
@@ -14,6 +14,12 @@ namespace Greed.Tests
 
         [TestMethod]
         public void Return100GivenSingle1()
+        {
+            throw new NotImplementedException();
+        }
+
+        [TestMethod]
+        public void Return1000GivenTriple1()
         {
             throw new NotImplementedException();
         }
