@@ -29,6 +29,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'VS2015|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\VS2015\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;VS2015</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'VS2017|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\VS2017\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;VS2017</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -40,7 +58,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Roll.cs" />
+    <Compile Include="Logic\ScoreCalculator.cs" />
+    <Compile Include="Rules\IRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules\Rule_Single.cs" />
+    <Compile Include="Rules\Rule_Triple.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
