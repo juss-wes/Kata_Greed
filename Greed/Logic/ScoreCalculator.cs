@@ -33,7 +33,7 @@ namespace Greed.Logic
         /// </summary>
         /// <param name="rolls">Die rolls to score</param>
         /// <returns>Integer score value from all of the rules</returns>
-        public int Calculate(IEnumerable<Roll> rolls)
+        public int Calculate(List<Roll> rolls)
         {
             var score = 0;
 

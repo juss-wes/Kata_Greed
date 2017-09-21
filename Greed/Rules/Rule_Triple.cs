@@ -10,8 +10,8 @@ namespace Greed.Rules
     /// </summary>
     public class Rule_Triple : IRule
     {
-        public int Score { get; }               // read-only auto property - C# 6
-        private int RollValue { get; }          // read-only auto property - C# 6
+        public int RuleScore { get; }                       // read-only auto property - C# 6
+        private int RollValue { get; }                      // read-only auto property - C# 6
 
         public Rule_Triple(int rollValue, int score)
         {
@@ -21,10 +21,10 @@ namespace Greed.Rules
                 throw new ArgumentOutOfRangeException(nameof(score), "Score values cannot be negative");                // nameof - C# 6
 
             RollValue = rollValue;
-            Score = score;
+            RuleScore = score;
         }
 
-        public int AddScore(IEnumerable<Roll> rolls)
+        public int AddScore(List<Roll> rolls)
         {
             if (rolls == null)
                 return 0;
@@ -32,12 +32,27 @@ namespace Greed.Rules
             // Determine if there are 3 or more of a given die value
             // (including duplicates if there are multiple sets of triples)
 
-            var dieCount = rolls
-                .Where(r => !r.Scored)
-                .Count(r => r.RollNumber == RollValue);
-            var multiplier = dieCount / 3;
+            var score = 0;
+            while (rolls.Where(r => !r.Scored).Count(r => r.RollNumber == RollValue) >= 3)
+            {
+                score += RuleScore;
 
-            return (multiplier * Score);
+                // Update die as used to avoid double counting
+                var dieUsed = 0;
+                rolls
+                    .Where(r => !r.Scored && r.RollNumber == RollValue)
+                    .ToList()
+                    .ForEach(r =>
+                {
+                    if (dieUsed < 3)
+                    {
+                        r.Scored = true;
+                        dieUsed++;
+                    }
+                });
+            }
+
+            return score;
         }
     }
 }

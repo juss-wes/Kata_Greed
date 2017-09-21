@@ -8,6 +8,6 @@ namespace Greed.Rules
     /// </summary>
     public interface IRule
     {
-        int AddScore(IEnumerable<Roll> rolls);
+        int AddScore(List<Roll> rolls);
     }
 }
