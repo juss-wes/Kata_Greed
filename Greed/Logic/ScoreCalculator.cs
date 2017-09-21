@@ -18,7 +18,7 @@ namespace Greed.Logic
             {
                 // These could also be configurable, dynamic, and take outside configuration
                 new Rule_Straight(1200),
-                new Rule_ThreePairs(800),
+                new Rule_ThreePair(800),
 
                 new Rule_OfAKind(1, 6, 8000),
                 new Rule_OfAKind(2, 6, 1600),
