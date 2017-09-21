@@ -37,6 +37,20 @@ namespace Greed.Tests
         }
 
         [TestMethod]
+        public void Return1000GivenTriple1()
+        {
+            // Arrange
+            var rule = new Rule_Triple(1, 1000);
+            var diceRolls = new List<Roll>() { new Roll(1), new Roll(1), new Roll(1), new Roll(2) };
+
+            // Act
+            var score = rule.AddScore(diceRolls);
+
+            // Assert
+            Assert.IsTrue(score == 1000);
+        }
+
+        [TestMethod]
         public void Return200GivenTriple2()
         {
             // Arrange
