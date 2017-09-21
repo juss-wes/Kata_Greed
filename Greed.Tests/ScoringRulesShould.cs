@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Greed.Models;
 using Greed.Rules;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -14,11 +13,10 @@ namespace Greed.Tests
         {
             // Arrange
             var rule = new Rule_Single(5, 50);
-            var dice = new List<Roll>() { new Roll(1), new Roll(6), new Roll(4), new Roll(5) }
-                .AsEnumerable();
+            var diceRolls = new List<Roll>() { new Roll(1), new Roll(6), new Roll(4), new Roll(5) };
 
             // Act
-            var score = rule.AddScore(dice);
+            var score = rule.AddScore(diceRolls);
 
             // Assert
             Assert.IsTrue(score == 50);
@@ -29,11 +27,10 @@ namespace Greed.Tests
         {
             // Arrange
             var rule = new Rule_Single(1, 100);
-            var dice = new List<Roll>() { new Roll(1), new Roll(6), new Roll(4), new Roll(5) }
-                .AsEnumerable();
+            var diceRolls = new List<Roll>() { new Roll(1), new Roll(6), new Roll(4), new Roll(5) };
 
             // Act
-            var score = rule.AddScore(dice);
+            var score = rule.AddScore(diceRolls);
 
             // Assert
             Assert.IsTrue(score == 100);
@@ -44,11 +41,10 @@ namespace Greed.Tests
         {
             // Arrange
             var rule = new Rule_Triple(2, 200);
-            var dice = new List<Roll>() { new Roll(2), new Roll(6), new Roll(2), new Roll(2) }
-                .AsEnumerable();
+            var diceRolls = new List<Roll>() { new Roll(2), new Roll(6), new Roll(2), new Roll(2) };
 
             // Act
-            var score = rule.AddScore(dice);
+            var score = rule.AddScore(diceRolls);
 
             // Assert
             Assert.IsTrue(score == 200);
@@ -59,11 +55,10 @@ namespace Greed.Tests
         {
             // Arrange
             var rule = new Rule_Triple(3, 300);
-            var dice = new List<Roll>() { new Roll(2), new Roll(3), new Roll(3), new Roll(3) }
-                .AsEnumerable();
+            var diceRolls = new List<Roll>() { new Roll(2), new Roll(3), new Roll(3), new Roll(3) };
 
             // Act
-            var score = rule.AddScore(dice);
+            var score = rule.AddScore(diceRolls);
 
             // Assert
             Assert.IsTrue(score == 300);
@@ -74,11 +69,10 @@ namespace Greed.Tests
         {
             // Arrange
             var rule = new Rule_Triple(4, 400);
-            var dice = new List<Roll>() { new Roll(4), new Roll(4), new Roll(2), new Roll(4) }
-                .AsEnumerable();
+            var diceRolls = new List<Roll>() { new Roll(4), new Roll(4), new Roll(2), new Roll(4) };
 
             // Act
-            var score = rule.AddScore(dice);
+            var score = rule.AddScore(diceRolls);
 
             // Assert
             Assert.IsTrue(score == 400);
@@ -89,11 +83,10 @@ namespace Greed.Tests
         {
             // Arrange
             var rule = new Rule_Triple(5, 500);
-            var dice = new List<Roll>() { new Roll(5), new Roll(3), new Roll(5), new Roll(5) }
-                .AsEnumerable();
+            var diceRolls = new List<Roll>() { new Roll(5), new Roll(3), new Roll(5), new Roll(5) };
 
             // Act
-            var score = rule.AddScore(dice);
+            var score = rule.AddScore(diceRolls);
 
             // Assert
             Assert.IsTrue(score == 500);
@@ -104,11 +97,10 @@ namespace Greed.Tests
         {
             // Arrange
             var rule = new Rule_Triple(6, 600);
-            var dice = new List<Roll>() { new Roll(2), new Roll(6), new Roll(6), new Roll(6) }
-                .AsEnumerable();
+            var diceRolls = new List<Roll>() { new Roll(2), new Roll(6), new Roll(6), new Roll(6) };
 
             // Act
-            var score = rule.AddScore(dice);
+            var score = rule.AddScore(diceRolls);
 
             // Assert
             Assert.IsTrue(score == 600);
@@ -119,11 +111,10 @@ namespace Greed.Tests
         {
             // Arrange
             var rule = new Rule_Triple(6, 600);
-            var dice = new List<Roll>() { new Roll(2), new Roll(6), new Roll(6), new Roll(6), new Roll(4), new Roll(6), new Roll(6), new Roll(6) }
-                .AsEnumerable();
+            var diceRolls = new List<Roll>() { new Roll(2), new Roll(6), new Roll(6), new Roll(6), new Roll(4), new Roll(6), new Roll(6), new Roll(6) };
 
             // Act
-            var score = rule.AddScore(dice);
+            var score = rule.AddScore(diceRolls);
 
             // Assert
             Assert.IsTrue(score == 1200);
