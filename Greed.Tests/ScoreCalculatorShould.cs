@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Greed.Logic;
 using Greed.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -14,8 +13,7 @@ namespace Greed.Tests
         {
             // Arrange
             var calculator = new ScoreCalculator();
-            var diceRolls = new List<Roll>() { new Roll(1), new Roll(1), new Roll(1), new Roll(5), new Roll(1) }
-                .AsEnumerable();
+            var diceRolls = new List<Roll>() { new Roll(1), new Roll(1), new Roll(1), new Roll(5), new Roll(1) };
 
             // Act
             var score = calculator.Calculate(diceRolls);
@@ -29,8 +27,7 @@ namespace Greed.Tests
         {
             // Arrange
             var calculator = new ScoreCalculator();
-            var diceRolls = new List<Roll>() { new Roll(2), new Roll(3), new Roll(4), new Roll(6), new Roll(2) }
-                .AsEnumerable();
+            var diceRolls = new List<Roll>() { new Roll(2), new Roll(3), new Roll(4), new Roll(6), new Roll(2) };
 
             // Act
             var score = calculator.Calculate(diceRolls);
@@ -44,8 +41,7 @@ namespace Greed.Tests
         {
             // Arrange
             var calculator = new ScoreCalculator();
-            var diceRolls = new List<Roll>() { new Roll(3), new Roll(4), new Roll(5), new Roll(3), new Roll(3) }
-                .AsEnumerable();
+            var diceRolls = new List<Roll>() { new Roll(3), new Roll(4), new Roll(5), new Roll(3), new Roll(3) };
 
             // Act
             var score = calculator.Calculate(diceRolls);
