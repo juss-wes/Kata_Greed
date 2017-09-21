@@ -17,14 +17,39 @@ namespace Greed.Logic
             _rules = new List<IRule>
             {
                 // These could also be configurable, dynamic, and take outside configuration
-                new Rule_Triple(1, 1000),
-                new Rule_Triple(2, 200),
-                new Rule_Triple(3, 300),
-                new Rule_Triple(4, 400),
-                new Rule_Triple(5, 500),
-                new Rule_Triple(6, 600),
-                new Rule_Single(1, 100),
-                new Rule_Single(5, 50)
+                new Rule_Straight(1200),
+                new Rule_ThreePairs(800),
+
+                new Rule_OfAKind(1, 6, 8000),
+                new Rule_OfAKind(2, 6, 1600),
+                new Rule_OfAKind(3, 6, 2400),
+                new Rule_OfAKind(4, 6, 3200),
+                new Rule_OfAKind(5, 6, 4000),
+                new Rule_OfAKind(6, 6, 4800),
+
+                new Rule_OfAKind(1, 5, 4000),
+                new Rule_OfAKind(2, 5, 800),
+                new Rule_OfAKind(3, 5, 1200),
+                new Rule_OfAKind(4, 5, 1600),
+                new Rule_OfAKind(5, 5, 2000),
+                new Rule_OfAKind(6, 5, 2400),
+
+                new Rule_OfAKind(1, 4, 2000),
+                new Rule_OfAKind(2, 4, 400),
+                new Rule_OfAKind(3, 4, 600),
+                new Rule_OfAKind(4, 4, 800),
+                new Rule_OfAKind(5, 4, 1000),
+                new Rule_OfAKind(6, 4, 1200),
+
+                new Rule_OfAKind(1, 3, 1000),
+                new Rule_OfAKind(2, 3, 200),
+                new Rule_OfAKind(3, 3, 300),
+                new Rule_OfAKind(4, 3, 400),
+                new Rule_OfAKind(5, 3, 500),
+                new Rule_OfAKind(6, 3, 600),
+
+                new Rule_OfAKind(1, 1, 100),
+                new Rule_OfAKind(5, 1, 50)
             };
         }
 
