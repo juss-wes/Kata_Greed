@@ -6,21 +6,25 @@ using Greed.Models;
 namespace Greed.Rules
 {
     /// <summary>
-    /// Rule to score a die score from 3 of the same dice
+    /// Rule to score a die score from many of the same dice
     /// </summary>
-    public class Rule_Triple : IRule
+    public class Rule_OfAKind : IRule
     {
         public int RuleScore { get; }                       // read-only auto property - C# 6
-        private int RollValue { get; }                      // read-only auto property - C# 6
+        private int RollValue { get; }                       // read-only auto property - C# 6
+        private int DiceCount { get; }                       // read-only auto property - C# 6
 
-        public Rule_Triple(int rollValue, int score)
+        public Rule_OfAKind(int rollValue, int count, int score)
         {
             if (rollValue <= 0 || rollValue > 6)
                 throw new ArgumentOutOfRangeException(nameof(rollValue), $"A die value of {rollValue} is invalid");     // nameof and string interpolation - C# 6
+            if (count <= 0)
+                throw new ArgumentOutOfRangeException(nameof(count), "Must require 1 or more dice to score");       // string interpolation - C# 6
             if (score < 0)
                 throw new ArgumentOutOfRangeException(nameof(score), "Score values cannot be negative");                // nameof - C# 6
 
             RollValue = rollValue;
+            DiceCount = count;
             RuleScore = score;
         }
 
@@ -29,11 +33,10 @@ namespace Greed.Rules
             if (rolls == null)
                 return 0;
 
-            // Determine if there are 3 or more of a given die value
-            // (including duplicates if there are multiple sets of triples)
+            // Determine if there are the requisite number of duplicates in the list of dice roles
 
             var score = 0;
-            while (rolls.Where(r => !r.Scored).Count(r => r.RollNumber == RollValue) >= 3)
+            while (rolls.Where(r => !r.Scored).Count(r => r.RollNumber == RollValue) >= DiceCount)
             {
                 score += RuleScore;
 
@@ -43,13 +46,13 @@ namespace Greed.Rules
                     .Where(r => !r.Scored && r.RollNumber == RollValue)
                     .ToList()
                     .ForEach(r =>
-                {
-                    if (dieUsed < 3)
                     {
-                        r.Scored = true;
-                        dieUsed++;
-                    }
-                });
+                        if (dieUsed < DiceCount)
+                        {
+                            r.Scored = true;
+                            dieUsed++;
+                        }
+                    });
             }
 
             return score;
