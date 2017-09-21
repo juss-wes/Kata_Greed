@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using Greed.Models;
+using Greed.Rules;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Greed.Tests
@@ -9,13 +12,29 @@ namespace Greed.Tests
         [TestMethod]
         public void Return50GivenSingle5()
         {
-            throw new NotImplementedException();
+            // Arrange
+            var rule = new Rule_Single();
+            var diceRolls = new List<Roll>() { new Roll(1), new Roll(6), new Roll(4), new Roll(5) };
+
+            // Act
+            var score = rule.AddScore(diceRolls);
+
+            // Assert
+            Assert.IsTrue(score == 50);
         }
 
         [TestMethod]
         public void Return100GivenSingle1()
         {
-            throw new NotImplementedException();
+            // Arrange
+            var rule = new Rule_Single();
+            var diceRolls = new List<Roll>() { new Roll(1), new Roll(6), new Roll(4), new Roll(5) };
+
+            // Act
+            var score = rule.AddScore(diceRolls);
+
+            // Assert
+            Assert.IsTrue(score == 50);
         }
 
         [TestMethod]
