@@ -63,7 +63,7 @@
     <Compile Include="Rules\IRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\Rule_OfAKind.cs" />
-    <Compile Include="Rules\Rule_ThreePairs.cs" />
+    <Compile Include="Rules\Rule_ThreePair.cs" />
     <Compile Include="Rules\Rule_Straight.cs" />
   </ItemGroup>
   <ItemGroup />

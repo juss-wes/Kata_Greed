@@ -26,7 +26,7 @@ namespace Greed.Rules
                 return 0;
 
             // Check for any duplicate numbers, which indicates the straight has failed
-            if (rolls.Where(r => !r.Scored).GroupBy(r => r).Count(g => g.Count() > 1) == 0)
+            if (rolls.Where(r => !r.Scored).GroupBy(r => r.RollNumber).Count(g => g.Count() > 1) == 0)
             {
                 // All 6 dice are used, based on the specification
                 rolls.ForEach(r => r.Scored = true);

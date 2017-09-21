@@ -9,17 +9,17 @@ namespace Greed.Tests
     public class ScoreCalculatorShould
     {
         [TestMethod]
-        public void Return1150Given11151()
+        public void Return2100Given111515()
         {
             // Arrange
             var calculator = new ScoreCalculator();
-            var diceRolls = new List<Roll>() { new Roll(1), new Roll(1), new Roll(1), new Roll(5), new Roll(1) };
+            var diceRolls = new List<Roll>() { new Roll(1), new Roll(1), new Roll(1), new Roll(5), new Roll(1), new Roll(5) };
 
             // Act
             var score = calculator.Calculate(diceRolls);
 
             // Assert
-            Assert.IsTrue(score == 1150);
+            Assert.IsTrue(score == 2100);
         }
 
         [TestMethod]
@@ -48,6 +48,34 @@ namespace Greed.Tests
 
             // Assert
             Assert.IsTrue(score == 350);
+        }
+
+        [TestMethod]
+        public void Return800Given333131()
+        {
+            // Arrange
+            var calculator = new ScoreCalculator();
+            var diceRolls = new List<Roll>() { new Roll(3), new Roll(3), new Roll(3), new Roll(1), new Roll(3), new Roll(1) };
+
+            // Act
+            var score = calculator.Calculate(diceRolls);
+
+            // Assert
+            Assert.IsTrue(score == 800);
+        }
+
+        [TestMethod]
+        public void Return500Given333222()
+        {
+            // Arrange
+            var calculator = new ScoreCalculator();
+            var diceRolls = new List<Roll>() { new Roll(3), new Roll(3), new Roll(3), new Roll(2), new Roll(2), new Roll(2) };
+
+            // Act
+            var score = calculator.Calculate(diceRolls);
+
+            // Assert
+            Assert.IsTrue(score == 500);
         }
     }
 }
