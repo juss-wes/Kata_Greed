@@ -18,5 +18,33 @@ namespace Greed.Models
             RollNumber = number;
             Scored = false;
         }
+
+        public string RollText => GetDiceText(RollNumber);  // expression bodied method - C# 6
+
+        /// <summary>
+        /// Fairly useless method, but wanted to show off expression bodied (single bodied) member functions
+        /// </summary>
+        /// <param name="number">Integer to convert</param>
+        /// <returns>String name of the given die number</returns>
+        private string GetDiceText(int number)
+        {
+            switch (number)
+            {
+                case 1:
+                    return "One";
+                case 2:
+                    return "Two";
+                case 3:
+                    return "Three";
+                case 4:
+                    return "Four";
+                case 5:
+                    return "Five";
+                case 6:
+                    return "Six";
+                default:
+                    return "OUT OF RANGE.  DOES NOT COMPUTE";
+            }
+        }
     }
 }
